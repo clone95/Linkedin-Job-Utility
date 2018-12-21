@@ -1,5 +1,8 @@
 from selenium import webdriver
 import time
+import os
+import SimpleCV as cv
+from selenium.webdriver.common.by import By
 
 # disabling notifications browser-level popUP
 
@@ -33,16 +36,35 @@ def main():
     submit_element = browser.find_element_by_name('signin')
     submit_element.click()
 
-    time.sleep(6)
-    print("launch")
+    time.sleep(2)
+
     keyword = browser.find_element_by_id('jobs-search-box-keyword-id-ember45')
     place = browser.find_element_by_id('jobs-search-box-location-id-ember45')
 
     keyword.send_keys("big data")
     place.send_keys("Bologna, Italia")
-    search = browser.find_element_by_class_name('jobs-search-box')
+    search = browser.find_element_by_class_name('button-secondary-large-inverse')
     search.click()
-    if search:
-            print("found")
+
+    time.sleep(2)
+    type_of_job = browser.find_element_by_class_name('neptune-grid')
+    lista = list(type_of_job.find_elements_by_tag_name("ul"))
+    filter_list = lista[0]
+    for n, el in enumerate(lista):
+        print(lista[n].text)
+        print(lista[n].tag_name)
+        print(lista[n].id)
+        print("\n\n")
+    #xperience = filter_list.find_elements_by_tag_name('li')[3]
+    a = list(filter_list.find_elements_by_tag_name('li'))
+
+    for n, el in enumerate(a):
+        print("______")
+        print(a[n].tag_name)
+
+    # type_of_job.click()
+    # thesis = browser.find_element_by_id('f_E-1')
+    # thesis.click()
+
 
 main()
