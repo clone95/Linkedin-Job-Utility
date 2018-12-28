@@ -15,8 +15,8 @@ browser = webdriver.Chrome(chrome_options=chrome_options)
 def main():
 
 
-    your_email = 'giac290595@gmail.com'
-    your_pwd = 'Jellyash95'
+    your_email = ''
+    your_pwd = ''
 
     time.sleep(1)
     browser.get('https://www.linkedin.com/jobs/')
