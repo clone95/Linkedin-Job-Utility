@@ -1,7 +1,7 @@
 from selenium import webdriver
 import time
 import scraper
-
+# completed
 with open("linkedin_data.txt") as file: # Use file to refer to the file object
 
    data = file.readlines()
